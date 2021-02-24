@@ -1,0 +1,26 @@
+<ng-template #theModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 *ngIf="type == 0" class="modal-title">Descrição</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <img
+      class="card-img-top"
+      src="{{ this.items.avatar_url }}"
+      alt="Imagem de capa do card"
+    />
+    <div class="padding">
+      <p>Usuário: {{ this.items.login }}</p>
+      <p>Quantidade de repositórios: {{ this.repo }}</p>
+      <p>Quantidade de seguidores: {{ this.followers }}</p>
+      <p>Data de criação da conta: {{ this.createDate.created_at | date }}</p>
+    </div>
+  </div>
+</ng-template>

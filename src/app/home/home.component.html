@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="row">
+    <div class="col-2 col-md-2">
+      <img src="../../assets/img/GitHub-Mark-64px.png" class="padding" />
+    </div>
+    <div class="col-10 col-md-10 filter">
+      <input
+        type="search"
+        class="form-control"
+        placeholder="Search"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="login"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="col-12 col-md-12">
+  <div class="row centralize">
+    <div
+      class="card"
+      *ngFor="let item of data | home: login"
+      (click)="yourCustomModal.showModal(item.id)"
+    >
+      <img
+        class="card-img-top img"
+        src="{{ item.avatar_url }}"
+        alt="Imagem de capa do card"
+      />
+      <div class="card-body text-align" >
+        <h5 class="card-title">{{ item.login }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-description-modal #yourCustomModal [data]="data"></app-description-modal>
